@@ -1,0 +1,81 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Lista de Productos</h1>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#" routerLink="/list-products">Listado</a></li>
+                        <li class="breadcrumb-item"><a href="#" routerLink="/add-products">Agregar</a></li>
+                        <li class="breadcrumb-item"><a href="#" routerLink="/detail-products">Detalle</a></li>
+                        <li class="breadcrumb-item"><a href="#" routerLink="/update-products">Actualización</a></li>
+                    </ol>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div class="card card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">Buscar..</h3>
+                    </div>
+                    <form>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input type="text" [(ngModel)]="name" name="name" (change)="search()" class="form-control" id="products" placeholder="Nombre del producto">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+
+            <div *ngFor="let product of products$ | async" class="col-md-3 col-sm-6 col-12">
+                <div class="info-box shadow" style="cursor: pointer;" (click)="btnProduct(product)">
+                    <span class="info-box-icon bg-success"><i class="fas fa-random"></i></span>
+
+                    <div class="info-box-content">
+
+                        <span class="info-box-text font-weight-bold">{{product.name}}</span>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="info-box-text font-weight-normal">Costo: ${{product.price || 0}}</span>
+                            </div>
+                            <div class="col-6" style="text-align: center;">
+                                <span class="info-box-text rigth">{{ (product.available) ? 'Disponible' : 'No disponible'}}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

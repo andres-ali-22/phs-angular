@@ -1,0 +1,93 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">
+            <i class="fas fas fa-box-open"></i> #{{ product.idProduct }} - {{ product.name }}
+        </h3>
+    </div>
+
+    <div class="card-body">
+
+        <!-- <form class="form"> -->
+
+        <dl class="row">
+
+            <dt class="col-sm-4">Nombre:</dt>
+            <dd class="col-sm-8">
+                <div class="input-group input-group-sm mb-2">
+                    <input [(ngModel)]="product.name" type="text" class="form-control" aria-label="Small" aria-describedby="name" [disabled]="type=='detail'">
+                </div>
+            </dd>
+
+            <dt class="col-sm-4">Descripción:</dt>
+            <dd class="col-sm-8">
+                <div class="input-group input-group-sm mb-2">
+                    <input [(ngModel)]="product.description" type="text" class="form-control" aria-label="Small" aria-describedby="description" [disabled]="type=='detail'">
+                </div>
+            </dd>
+
+            <dt class="col-sm-4">Precio:</dt>
+            <dd class="col-sm-8">
+                <div class="input-group input-group-sm mb-2">
+                    <input [(ngModel)]="product.price" type="number" class="form-control" aria-label="Small" aria-describedby="price" [disabled]="type=='detail'">
+                </div>
+            </dd>
+
+            <dt class="col-sm-4">Condición:</dt>
+            <dd class="col-sm-8">
+                <div class="input-group input-group-sm mb-2">
+                    <input [(ngModel)]="product.condition" type="text" class="form-control" aria-label="Small" aria-describedby="condition" [disabled]="type=='detail'">
+                </div>
+            </dd>
+
+            <dt class="col-sm-4">Categoría:</dt>
+            <dd class="col-sm-8">
+                <div class="input-group input-group-sm mb-2">
+                    <input [(ngModel)]="product.category" type="text" class="form-control" aria-label="Small" aria-describedby="category" [disabled]="type=='detail'">
+                </div>
+            </dd>
+
+            <dt class="col-sm-4">Disponibilidad:</dt>
+            <dd class="col-sm-8">
+                <div class="input-group input-group-sm mb-2">
+                    <!-- <input [(ngModel)]="product.available" type="text" class="form-control" aria-label="Small" aria-describedby="available" [disabled]="type=='detail'"> -->
+                    <input [(ngModel)]="product.available" type="checkbox" class="form-control" aria-label="Small" aria-describedby="available" [disabled]="type=='detail'">
+                </div>
+            </dd>
+
+            <dt class="col-sm-4">Fecha:</dt>
+            <dd class="col-sm-8">
+                <div class="input-group input-group-sm mb-2">
+                    <input [(ngModel)]="product.publication" type="date" class="form-control" aria-label="Small" aria-describedby="publication" [disabled]="type=='detail'">
+                </div>
+            </dd>
+
+        </dl>
+
+        <!-- </form> -->
+
+    </div>
+
+    <div class="card-footer">
+        <div class="row justify-content-end">
+            <div *ngIf="type=='add'" class="col-sm-3">
+                <button type="button" (click)="add()" class="btn btn-block btn-success">Agregar</button>
+            </div>
+            <div *ngIf="type=='detail'" class="col-sm-3">
+                <button type="button" (click)="delete()" class="btn btn-block btn-danger">Eliminar</button>
+            </div>
+            <div *ngIf="type=='update'" class="col-sm-3">
+                <button type="button" (click)="update()" class="btn btn-block btn-info">Actualizar</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Item ID: A unique identifier for each item for sale. It can be a number or a string. -->
+<!-- Item Name: The name or title of the item for sale. -->
+<!-- Description: A detailed description of the item for sale, which may include features, specifications, or relevant information for buyers. -->
+<!-- Price: The price of the item for sale. It can be a numerical value or a monetary representation. -->
+<!-- Category: The category to which the item belongs. For example, electronics, clothing, home, etc. This can help in organizing and searching for items. -->
+<!-- Condition: The current condition of the item for sale, such as new, used, refurbished, etc. -->
+<!-- Availability: Indicates whether the item is available for sale or not. It can be a boolean value (true/false) or a value representing the availability status. -->
+<!-- Publication Date: The date when the item was published or listed for sale. -->
